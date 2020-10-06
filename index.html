@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeny</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/spring-season-filled-outline/32/leaf_leaves_spring_greeny_weather-512.png">
+</head>
+<style>
+    body{
+      font-family: 'Poppins', sans-serif;
+    }
+    .bg-cornflowerblue{
+      background: #055e68;
+      z-index: 999;
+      border-bottom: 1px solid #093C42; 
+      color: #fff;
+      position:fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+    }
+    .nav_link{
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1.3px;
+      transition: all .3s linear;
+    }
+    .nav_link:hover{
+      color:grey;
+    }
+    .main-hero{
+      background: url('https://images.unsplash.com/photo-1521111756787-d2f69136cedf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=885&q=80') no-repeat center center/cover;
+    }
+    .hero-heading{
+      font-size:40px;
+    }
+    .hero-para{
+      color: #055e68;
+      font-size:21px;
+    }
+    .hero-btn{
+      background: #055e68;
+      margin-top: 30px;
+      transition: all .3s linear;
+    }
+    .hero-btn:hover{
+       background: #257079;
+    }
+    .resources{
+      background: rgb(243, 243, 243);
+    }
+    .resources_header{
+      color: rgb(5, 94, 104);
+      font-size: 64px;
+      font-weight:bolder;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-bottom:20px;
+    }
+    .large_heading{
+      color: rgb(5, 94, 104);
+      font-size: 46px;
+      font-weight: bolder;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* padding-bottom: 20px; */
+      line-height: initial;
+    }
+    .medium_heading{
+      margin-top: -46px;
+      font-size: 30px;
+      margin-bottom: 0px;
+    }
+    .small_heading{
+      color: rgb(5, 94, 104);
+      font-weight: bolder;
+      font-size: 19px;
+      margin-top: -10px;
+    }
+    .resources img{
+      transition: all .3s linear;
+    }
+    .resources img:hover{
+      opacity:.7;
+    }
+    .resources_text{
+      color: #055e68;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin-top: 0px;
+    }
+    .position_relative{
+      position: relative;
+      transition: all .3s linear;
+    }
+    .position_relative:hover{
+      opacity: .7;
+    }
+    .position_absolute{
+      position: absolute;
+      top: 7px;
+      left: 8px;
+      right: 8px;
+      bottom: 7px;
+      padding: 12px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      text-align: center;
+    }
+    @media only screen and (max-width:1187px){
+      .position_absolute{
+        font-size:15px;
+      }
+    }
+    @media only screen and (max-width:822px){
+      .position_absolute{
+        font-size:10px;
+      }
+    }
+    @media only screen and (max-width:502px){
+      .position_absolute{
+        font-size:4px;
+      }
+    }
+    @media only screen and (max-width:1070px){
+      .large_heading{
+      color: rgb(5, 94, 104);
+      font-size: 46px;
+    }
+    .medium_heading{
+      margin-top: -6px;
+      font-size: 30px;
+      margin-bottom: 0px;
+    }
+    .small_heading{
+      color: rgb(5, 94, 104);
+      font-weight: bolder;
+      font-size: 19px;
+      margin-top:8px;
+    }
+    }
+    @media only screen and (max-width:779px){
+      .second_hero_para{
+        padding-top: 3rem;
+      }
+      .large_heading{
+        padding-top: 3rem;
+      }
+    }
+    @media only screen and (max-width:464px){
+      .resources_header{
+        font-size: 44px;
+      }
+    }
+    .logo_img{
+      width: 2.5rem;
+      --text-opacity: 1;
+      color: rgba(255,255,255,var(--text-opacity));
+      padding:0rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      display: block;
+      border-width: 0;
+    border-style: solid;
+    overflow: hidden;
+    font-weight: 500;
+    background: #91ccd3;
+    }
+    .footer_link{
+      transition: all .3s linear;
+    }
+    .footer_link:hover{
+      color:rgb(157, 198, 202) !important;
+    }
+</style>
+<body>
+  <header class="text-gray-700 body-font bg-cornflowerblue">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+       <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24" style="background:rgb(157, 198, 202);">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>-->
+        <img src="https://static.thenounproject.com/png/1200429-200.png" alt="" class="logo_img">
+        <span class="ml-3 text-xl" style="color:rgb(157, 198, 202);">Greeny</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900 nav_link" href="./index.html">Home</a>
+        <a class="mr-5 hover:text-gray-900 nav_link" href="./index.html">About</a>
+        <a class="mr-5 hover:text-gray-900 nav_link" href="./contact.html" target="_blank">Contact Us</a>
+        <a class="mr-5 hover:text-gray-900 nav_link" href="./index.html">Services</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="text-gray-700 body-font main-hero">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="lg:w-2/3 mx-auto">
+        <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4" style="background: transparent;">
+          <div class="text-center relative z-10 w-full">
+            <h2 class="text-2xl text-gray-900 font-medium title-font mb-2 hero-heading">Let's stop polluting our enviroment!</h2>
+            <p class="leading-relaxed hero-para">we are committed to protect and enhance our
+              environment</p>
+            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg hero-btn">LEARN MORE</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-gray-700 body-font" style="background: #dbe0e0;">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center" style="padding-top: 0rem; padding-bottom: 0rem;">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <p class="mb-8 leading-relaxed second_hero_para" style="font-size: 28px;
+        line-height: 1.445;">Our departments are at the forefront of environmental science, using cutting-edge research to shape the state's environmental laws.</p>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img01.jpg" style="height: 426px;">
+      </div>
+    </div>
+  </section>
+
+  <!--resources section-->
+  <section class="text-gray-700 body-font resources" style="background: #cad4d4;">
+    <div class="container px-5 py-24 mx-auto" style="padding-top: 3rem;
+    padding-bottom: 3rem;">
+      <h1 class="resources_header">Resources for</h1>
+      <div class="flex flex-wrap -m-4">
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://images.unsplash.com/photo-1589878722757-d657b1e2b69c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
+          </a>
+          <div class="mt-4">
+            <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1 resources_text">сitizens</h1> 
+          </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img03-original.jpg">
+          </a>
+          <div class="mt-4">
+            <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1 resources_text">
+              educators</h1>
+          </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img04-original.jpg">
+          </a>
+          <div class="mt-4">
+            <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1 resources_text">businesses</h1>
+          </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img05-original.jpg">
+          </a>
+          <div class="mt-4">
+            <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1 resources_text">government</h1> 
+          </div>
+        </div>
+        <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img06-original.jpg">
+          </a>
+          <div class="mt-4">
+            <h1 class="text-gray-500 text-xs tracking-widest title-font mb-1 resources_text">public notices</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--information section-->
+  <section class="text-gray-700 body-font" style="background: #dbe0e0;">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center" style="padding-top: 0rem; padding-bottom:0rem;">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 large_heading">
+          <br class="hidden lg:inline-block">What is waste water?
+        </h1>
+        <h2 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 medium_heading">
+          <br class="hidden lg:inline-block">dirty water that is sent down our drains and toilets is called waste water
+        </h2>
+        <h6 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 small_heading">
+          <br class="hidden lg:inline-block">These can include:
+        </h6>
+        <p class="mb-8 leading-relaxed" style="margin-bottom: .5rem;"><span>+</span> &nbsp;&nbsp;&nbsp;solids and organic matter</p>
+        <p class="mb-8 leading-relaxed" style="margin-bottom: .5rem;"><span>+</span> &nbsp;&nbsp;&nbsp;pathogens (disease causing organisms)</p>
+        <p class="mb-8 leading-relaxed" style="margin-bottom: .5rem;"><span>+</span> &nbsp;&nbsp;&nbsp;nutrients (nitrogen, phosphorus, etc.)</p>
+        <p class="mb-8 leading-relaxed" style="margin-bottom: .5rem;"><span>+</span> &nbsp;&nbsp;&nbsp;chemicals (cleaners, disinfectants, medications)</p>
+        <p class="mb-8 leading-relaxed" style="margin-bottom:0rem;"><span>+</span> &nbsp;&nbsp;&nbsp;heavy metals (mercury, lead, etc.)</p>
+       
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img07.jpg" style="height:626px;">
+      </div>
+    </div>
+  </section>
+
+  <!--gallery-->
+  <section class="text-gray-700 body-font" style="background: #cad4d4;">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap" style="padding-top: 3rem;
+    padding-bottom: 3rem;">
+      <h1 class="resources_header">Programs:</h1>
+      <div class="flex flex-wrap md:-m-2 -m-1">
+        <div class="flex flex-wrap w-1/2">
+          <div class="md:p-2 p-1 w-1/2 position_relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img09.jpg">
+            <h6 class="position_absolute">Enviromental Education</h6>
+          </div>
+          <div class="md:p-2 p-1 w-1/2 position_relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img10.jpg">
+            <h6 class="position_absolute">Green Chemistry</h6>
+          </div>
+          <div class="md:p-2 p-1 w-full position_relative">
+            <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img08.jpg">
+            <h6 class="position_absolute">Enviromental Enforcement</h6>
+          </div>
+        </div>
+        <div class="flex flex-wrap w-1/2">
+          <div class="md:p-2 p-1 w-full position_relative">
+            <img alt="gallery" class="w-full h-full object-cover object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img16.jpg">
+            <h6 class="position_absolute">Governor's Awards</h6>
+          </div>
+          <div class="md:p-2 p-1 w-1/2 position_relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img15.jpg">
+            <h6 class="position_absolute">Underground Storage Tanks</h6>
+          </div>
+          <div class="md:p-2 p-1 w-1/2 position_relative">
+            <img alt="gallery" class="w-full object-cover h-full object-center block" src="https://livedemo00.template-help.com/wt_57707/images/page-01_img14.jpg">
+            <h6 class="position_absolute">California Indian Tribal Relations</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <div class="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57206.31117695204!2d86.0385826267519!3d26.346101060880574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edcd30bc1d5d47%3A0x8bbe389999d9c709!2sMadhubani%2C%20Bihar!5e0!3m2!1sen!2sin!4v1601914178865!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+ </div>
+
+ <!--footer-->
+ <footer class="text-gray-700 body-font" style=" background-color: #055e68;">
+  <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
+    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24" style="background:rgb(157, 198, 202);">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>-->
+        <img src="https://static.thenounproject.com/png/1200429-200.png" alt="" class="logo_img">
+        <span class="ml-3 text-xl" style="color:rgb(157, 198, 202);">Greeny</span>
+      </a>
+      
+    </div>
+    <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="color:rgb(157, 198, 202);">Menu</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800" style="color:rgb(157, 198, 202);">Home</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">About Us</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Programs</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Publications</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Contact Us</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3" style="color:rgb(157, 198, 202);">Environmental info
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Climate change</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Compliance</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Environmental</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Illegal Dumping</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Noise</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"></h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Hub</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Reporting pollution</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Students</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color: #fff; cursor: pointer;">Waste</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800 footer_link" style="color:#fff; cursor: pointer;">Water</a>
+          </li>
+        </nav>
+      </div>
+     
+    </div>
+  </div>
+  <div class="bg-gray-200" style="background-color: #055e68;">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-500 text-sm text-center sm:text-left" style="color:rgb(157, 198, 202);">© 2020 Greeny —
+        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank" style="color:rgb(157, 198, 202);">Developed By Saurav Kumar</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <a class="text-gray-500" style="color:rgb(157, 198, 202); cursor: pointer;" href="https://www.facebook.com/sauravkumar.jha.520/" target="_blank">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500" style="color:rgb(157, 198, 202); cursor: pointer;" href="https://twitter.com/kumar_saurav12" target="_blank">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500" style="color:rgb(157, 198, 202); cursor: pointer;" href="https://www.instagram.com/iamsauravjohnson/" target="_blank">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500" style="color:rgb(157, 198, 202); cursor: pointer;">
+         <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
